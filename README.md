@@ -25,6 +25,6 @@ The microservice runs on Node.js and requires npm to install dependencies. It us
    docker push australia-southeast1-docker.pkg.dev/sit737-25t1-kotapati-a48c6ac/sit737-2025-prac5d/web_app:1.0
 
 9) Run the image
-    docker run -d -p 8080:8080 australia-southeast1-docker.pkg.dev/sit737-25t1-kotapati-a48c6ac/sit737-2025-prac5d/web_app:1.0
+    docker run -d -p 3000:3000 australia-southeast1-docker.pkg.dev/sit737-25t1-kotapati-a48c6ac/sit737-2025-prac5d/web_app:1.0
 
 10) Access `http://localhost:3000` in a browser.
