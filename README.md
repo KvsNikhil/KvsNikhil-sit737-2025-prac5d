@@ -10,17 +10,21 @@ The microservice runs on Node.js and requires npm to install dependencies. It us
    ```sh
    npm init -y
    ```
+4) Now create `server.js` file which will work as API with a frontend HTML file, `index.html`, within `public` directory with the given codes.
 
-4) Install Express.js for backend routing and Winston for logging:
-   ```sh
-   npm install express Winston
-   ```
+5) Creating Artifact repository
+   cloud artifacts repositories create sit737-2025-prac5d --repository-format=docker --location=australia-southeast1 --description="Docker repository"
 
-5) Now create `server.js` file which will work as API with a frontend HTML file, `index.html`, within `public` directory with the given codes.
+6) Tag the docker image
+   docker tag kvsnikhil/web_app:1.0 australia-southeast1-docker.pkg.dev/sit737-25t1-kotapati-a48c6ac/sit737-2025-prac5d/web_app:1.0
 
-6) Run the Microservice:
-   ```sh
-   node server.js
-   ```
+7) Authentication
+   gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin australia-southeast1-docker.pkg.dev
 
-7) Access `http://localhost:3000` in a browser.
+8) Push image
+   docker push australia-southeast1-docker.pkg.dev/sit737-25t1-kotapati-a48c6ac/sit737-2025-prac5d/web_app:1.0
+
+9) Run the image
+    docker run -d -p 8080:8080 australia-southeast1-docker.pkg.dev/sit737-25t1-kotapati-a48c6ac/sit737-2025-prac5d/web_app:1.0
+
+10) Access `http://localhost:3000` in a browser.
